@@ -80,18 +80,15 @@ def read_semeval(binary=False):
 				ex = (label,tweet)
 				msgs.append(ex)
 		shuffle(msgs)
-		all_msgs += msgs	
-		
+		all_msgs += msgs			
 		with codecs.open(DATA_OUT+fname.lower(),"w","utf-8") as fod:
 			for ex in msgs:
 				fod.write('\t'.join(ex)+"\n")
 	
 	return all_msgs
 
-
 def get_parser():
-    parser = argparse.ArgumentParser(description="Linear Classifier")
-    #Basic Input
+    parser = argparse.ArgumentParser()    
     parser.add_argument('-bin', action="store_true", default=False,
                         help='if True, only positive and negatives will be used')
     return parser
